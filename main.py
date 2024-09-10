@@ -1391,15 +1391,6 @@ def xlsx_write(xlsx_file, row, column, key, sheetx='', new_xlsx_file=None, read=
     else:
         sheet = workbook.active  # 默认第一个
 
-    # if read:
-    #     k = sheet.cell(row=row, column=column).value
-    #
-    #     if len(str(k)) > 0:
-    #         if read == 2:
-    #             with open('baklog/write_xlsx_err.txt', 'a', encoding='utf-8') as f:
-    #                 f.write('{},{},{},{},{}\n'.format(xlsx_file, row, column, key, sheetx))
-    #         else:
-    #             return
     print('写入', key,xlsx_file,row,column)
     sheet.cell(row=row, column=column, value=key)
     if new_xlsx_file:
@@ -1464,7 +1455,6 @@ def post_collect(data):
         tid = res.get('exTradeId', None)
         return tid
 
-    # {'ROOT': {'BODY': {'RETURN_MSG': 'OK', 'RETURN_CODE': '0', 'exTradeId': '202408031618435529595'}}}
 
 
 def post_judgePay(exTradeId):
@@ -1784,7 +1774,7 @@ def info_save(msg,savemsg,file="post_err.txt",sfzh=None):
     except Exception as e:
         print('save err ',e)
 def run():
-    # "channelType": "2020100", "channelId": "30b5f3u", "IdType": "3"
+
 
     global certName,certId,receiveMobile,phone_number
     certId,certName,receiveMobile='','',''
@@ -1899,8 +1889,8 @@ def run():
         except Exception as e:
             print('post err',e)
             info_save('提交出现异常错误失败',f'judgePay:提交出现异常错误失败 {e} ')
-    # else:
-    #     info_save('参数信息缺失', f'run :参数信息缺失 ')
+
+
 
 def print_config():
     global sfz_pic_path, temp_path, xlsx_file
