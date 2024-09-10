@@ -1712,7 +1712,6 @@ def get_file_name(filelist, sfzh):
     # print(sfzh,len(sfzh),sfzlist)
     # 身份证号匹配文件名
     if len(str(sfzh)) == 18:
-        # d='140202198509173010'
         k = str(sfzlist)
         if sfzh in k:
             e = k.find(sfzh)
